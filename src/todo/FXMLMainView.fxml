@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="576.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<content><BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1066.0" style="-fx-background-color: #292929;">
+<left><BorderPane prefHeight="576.0" prefWidth="202.0" BorderPane.alignment="CENTER">
+<top><ImageView fx:id="todoImageView" fitHeight="72.0" fitWidth="234.0" onMouseClicked="#clickedLogo" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+<effect>
+<InnerShadow />
+</effect></ImageView>
+</top>
+<center><Accordion prefHeight="542.0" prefWidth="202.0">
+  <panes>
+    <TitledPane text="Statistics">
+      <content><ListView fx:id="listView" layoutX="-21.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+      </content>
+    </TitledPane>
+    <TitledPane text="Settings">
+<content><VBox prefHeight="200.0" prefWidth="100.0" spacing="6.0">
+<children>
+<HBox alignment="CENTER">
+<children><Button fx:id="JDBCConnBtn" mnemonicParsing="false" text="Custom JDBC connection" />
+</children>
+</HBox>
+<HBox alignment="CENTER">
+<children><Hyperlink fx:id="hsqldbHl" onAction="#oHsqldoc" text="HSQLDB doc." />
+</children>
+</HBox>
+<HBox alignment="CENTER" layoutX="20.0" layoutY="51.0">
+<children>
+<Hyperlink fx:id="jdbcHl" onAction="#oJdbcdoc" text="JDBC doc." />
+</children>
+</HBox><TextArea prefHeight="200.0" prefWidth="200.0" text="How to set custom JDBC connection?  It's simple http://hsqldb.org/doc/guide/dbproperties-chapt.html   -----format-----  jdbc:hsqldb:&lt;file|res|mem|hsql|hsqls|http|https&gt;:&lt;url&gt;,username,password " wrapText="true" />
+</children></VBox>
+</content>
+    </TitledPane>
+    <TitledPane text="About">
+<content><TextArea fx:id="descTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+</content>
+    </TitledPane>
+  </panes>
+<BorderPane.margin>
+<Insets top="10.0" />
+</BorderPane.margin>
+</Accordion>
+</center>
+<bottom><Label text="TODO by Tomas Bisciak v1.0.3" textFill="#7c7c7c" BorderPane.alignment="CENTER" />
+</bottom></BorderPane>
+</left>
+<center><BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<bottom><BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dedede;" BorderPane.alignment="CENTER">
+<effect>
+<InnerShadow />
+</effect>
+<center><TabPane minHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dedede;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+  <tabs>
+    <Tab text="Detail">
+<content><BorderPane prefHeight="200.0" prefWidth="200.0">
+<top>
+<HBox spacing="10.0">
+<children><Label fx:id="dlblEntry" BorderPane.alignment="TOP_LEFT">
+<BorderPane.margin>
+<Insets bottom="5.0" left="15.0" top="5.0" />
+</BorderPane.margin></Label>
+<Label fx:id="dlbCategory" layoutX="79.0" layoutY="10.0" />
+<Label fx:id="dlbPriority" layoutX="111.0" layoutY="10.0" />
+</children>
+<BorderPane.margin>
+<Insets bottom="10.0" left="15.0" top="5.0" />
+</BorderPane.margin>
+</HBox>
+</top>
+<center><TextArea fx:id="messTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Full message" wrapText="true" BorderPane.alignment="CENTER">
+<BorderPane.margin>
+<Insets bottom="10.0" left="15.0" right="15.0" />
+</BorderPane.margin></TextArea>
+</center></BorderPane>
+</content>
+    </Tab>
+    <Tab text="Local database settings">
+<content><BorderPane prefHeight="200.0" prefWidth="200.0">
+<center>
+<VBox>
+<children><TitledPane expanded="false" text="Database detail" BorderPane.alignment="TOP_CENTER">
+<content>
+<ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="156.0" prefViewportWidth="862.0">
+<content>
+<HBox alignment="CENTER">
+<children>
+<VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="288.0">
+<children>
+<Label text="Type:" />
+<Label text="Connection type:" />
+<Label layoutX="198.0" layoutY="27.0" text="Database name:" />
+<Label layoutX="203.0" layoutY="44.0" text="Driver class:" />
+<Label layoutX="203.0" layoutY="61.0" text="Login:" />
+<Label layoutX="255.0" layoutY="78.0" text="Password" />
+<Label layoutX="238.0" layoutY="95.0" text="HSQLDB Version:" />
+<Label layoutX="238.0" layoutY="112.0" text="Db directory:" />
+</children>
+<opaqueInsets>
+<Insets />
+</opaqueInsets>
+<padding>
+<Insets right="10.0" />
+</padding>
+</VBox>
+<VBox layoutX="126.0" layoutY="20.0" prefHeight="200.0" prefWidth="288.0">
+<children>
+<Label text="Embedded HSQLDB Database" />
+<Label text="JDBC(HSQLDB Embedded)" />
+<Label layoutX="10.0" layoutY="27.0" text="dbtodo" />
+<Label layoutX="10.0" layoutY="44.0" text="org.hsqldb.jdbcDriver" />
+<Label layoutX="10.0" layoutY="61.0" text="TODO" />
+<Label layoutX="10.0" layoutY="78.0" text="TODODB" />
+<Label layoutX="10.0" layoutY="95.0" text="2.3.2" />
+<Label fx:id="dirLabel" layoutX="10.0" layoutY="112.0" text="directory" />
+</children>
+</VBox>
+</children>
+</HBox>
+</content>
+</ScrollPane>
+</content>
+</TitledPane><TitledPane animated="false" text="Database settings">
+<content><BorderPane prefHeight="200.0" prefWidth="200.0">
+<center>
+<VBox spacing="10.0">
+<children>
+<HBox alignment="CENTER" spacing="10.0">
+<children><Label text="HSQLDB url" BorderPane.alignment="CENTER" /><TextField fx:id="dbsUrl" /><Button fx:id="chburl" mnemonicParsing="false" text="Change" /><Label text="jdbc:hsqldb:file|res|mem only.Otherwise use customconn.cfg" />
+</children>
+</HBox>
+<HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="10.0">
+<children>
+<Label text="Type" BorderPane.alignment="CENTER" /><ChoiceBox fx:id="dbsType" prefWidth="150.0" /><Button fx:id="chbtype" mnemonicParsing="false" text="Change" />
+</children>
+</HBox>
+<HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" spacing="10.0">
+<children>
+<Label text="Table detail: todos (todoId INTEGER IDENTITY,category VARCHAR(255) NOT NULL,message VARCHAR(255) NOT NULL,priority VARCHAR(255) NOT NULL)" BorderPane.alignment="CENTER" />
+</children>
+</HBox>
+</children>
+</VBox>
+</center></BorderPane>
+</content>
+</TitledPane>
+</children>
+</VBox>
+</center></BorderPane>
+</content>
+    </Tab>
+<Tab text="Instructions">
+<content>
+<ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="171.0" prefViewportWidth="865.0">
+<content><BorderPane minHeight="300.0" prefHeight="300.0" prefWidth="200.0">
+<center>
+<VBox alignment="CENTER" spacing="5.0">
+<children>
+<HBox alignment="CENTER" spacing="10.0">
+<children><Text fill="#2c2b2b" strokeType="OUTSIDE" strokeWidth="0.0" text="Type anywhere" BorderPane.alignment="CENTER">
+<font>
+<Font name="Century Gothic" size="14.0" />
+</font></Text><Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="//TODO THIS IS MY MESSAGE //">
+<font>
+<Font name="DejaVu Sans Bold" size="18.0" />
+</font></Text>
+</children>
+</HBox>
+<Line endX="400.0" fill="WHITE" layoutX="179.0" layoutY="119.0" startX="-100.0" stroke="#838383" strokeLineCap="ROUND" strokeLineJoin="BEVEL" /><Text fill="#2c2b2b" strokeType="OUTSIDE" strokeWidth="0.0" text="It's that easy!">
+<font>
+<Font name="Century Gothic" size="14.0" />
+</font>
+</Text>
+<Text fill="#2c2b2b" layoutX="290.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fast and lazy way to create TO-DO list!">
+<font>
+<Font name="Century Gothic" size="14.0" />
+</font>
+</Text><Line endX="400.0" fill="WHITE" startX="-100.0" stroke="#838383" strokeLineCap="ROUND" strokeLineJoin="BEVEL" VBox.vgrow="NEVER" />
+<Text fill="#2c2b2b" layoutX="218.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To specify category just put another slash before your message!">
+<font>
+<Font name="Century Gothic" size="14.0" />
+</font>
+</Text>
+<Text fill="#515151" layoutX="143.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="//TODO /WORK CALL JOE AND ASK HIM ABOUT FXC//">
+<font>
+<Font name="DejaVu Sans Bold" size="14.0" />
+</font>
+</Text>
+<Line endX="400.0" fill="WHITE" layoutX="286.0" layoutY="135.0" startX="-100.0" stroke="#838383" strokeLineCap="ROUND" strokeLineJoin="BEVEL" />
+<Text fill="#2c2b2b" layoutX="143.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or give your messeges priority! Put slash after the message with the word LOW,MEDIUM,HIGH!">
+<font>
+<Font name="Century Gothic" size="14.0" />
+</font>
+</Text>
+<Text fill="#515151" layoutX="239.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="//TODO /HOME WALK THE DOG /HIGH//">
+<font>
+<Font name="DejaVu Sans Bold" size="14.0" />
+</font>
+</Text>
+</children>
+<BorderPane.margin>
+<Insets bottom="20.0" top="20.0" />
+</BorderPane.margin>
+</VBox>
+</center></BorderPane>
+</content>
+</ScrollPane>
+</content>
+</Tab>
+  </tabs>
+</TabPane>
+</center></BorderPane>
+</bottom>
+<center><TableView fx:id="tableView" editable="true" prefHeight="348.0" prefWidth="864.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER" />
+</center>
+<top>
+<HBox alignment="CENTER_LEFT">
+<children><ToolBar prefWidth="200.0" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+  <items>
+    <Button fx:id="donatebtn" mnemonicParsing="false" onAction="#donateLink" style="-fx-background-radius: 0;" text="Donate" /><Label text="Please" />
+  </items>
+</ToolBar>
+<ToolBar layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="277.0">
+<items>
+<Button fx:id="removeBtn" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Remove selected TODO's" />
+<Button fx:id="removeAllBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Remove all" />
+</items>
+</ToolBar>
+</children>
+</HBox>
+</top></BorderPane>
+</center></BorderPane>
+</content>
+</ScrollPane>
