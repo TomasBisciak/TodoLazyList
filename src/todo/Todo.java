@@ -353,7 +353,7 @@ public class Todo extends Application {
             //TODO HAVE TO IGNORE SOME CHARACTERS WHEN SCANNER ENABLED AND SCANNING FOR MESASGE 
 
             //normal initialization
-            current = nke.getKeyCode() == TodoEntry.SLASH ? '/' : (char) nke.getKeyCode();//there might be need for encoding or osmehting .. not sure/fjf\
+            current = nke.getKeyCode() == TodoEntry.SLASH ? '/' : (char) nke.getKeyCode();
             if (nke.paramString().contains("NumPad")) {
                 current = nke.paramString().charAt(nke.paramString().indexOf("NumPad ") + 7);
             }
@@ -381,7 +381,7 @@ public class Todo extends Application {
                     }
 
                     ///fill buffer
-                    charBuffer[c] = current;//may use some special encoding for characters like /.,;'[] etc etc..
+                    charBuffer[c] = current;
                     c++;
 
                     if (isFollowing()) {

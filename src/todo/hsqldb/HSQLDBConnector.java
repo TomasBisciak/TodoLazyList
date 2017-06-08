@@ -17,7 +17,7 @@ import todo.Todo;
 import todo.TodoEntry;
 
 /**
- * Works tightly with configurator,Some contrustors use global configurator found in main method
+ * 
  * @author tomas
  */
 public class HSQLDBConnector {

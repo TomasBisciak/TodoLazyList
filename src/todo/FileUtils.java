@@ -18,11 +18,7 @@ import java.net.URI;
 import java.util.Scanner;
 
 
-/**
- * Utility class handle all file related operations except for xml.For xml use XmlData util class.
- *
- * @author tomas
- */
+
 //TODO modify to NIO
 //TODO make thread safe
 public final class FileUtils {

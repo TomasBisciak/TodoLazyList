@@ -1,0 +1,7 @@
+.jar   - executable je v priecinku dist   (TODO executable jar file)
+potrebujete java8+ na zbehnutie (JRE)
+source code je v /src
+
+Cely tento priecinok je Netbeans project , mozte otvorit ako project v netbeans.
+
+Pripadne stiahnut  tuna: http://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/TODO-LazyList.shtml
